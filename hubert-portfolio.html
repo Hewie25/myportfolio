@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hubert — Web Developer from Ghana. Clean, fast, conversion-focused websites that help businesses look credible and sell." />
+  <meta name="theme-color" content="#0f1419" />
+  <title>Hubert | Web Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    :root, [data-theme="dark"] {
+      --bg: #0f1419;
+      --bg-elevated: #1a222c;
+      --bg-card: #212a36;
+      --text: #e8eef4;
+      --text-muted: #8b9bb4;
+      --accent: #e85d04;
+      --accent-dark: #c2410c;
+      --accent-soft: rgba(232, 93, 4, 0.12);
+      --border: rgba(255, 255, 255, 0.07);
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+    [data-theme="light"] {
+      --bg: #f4f7f5;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --text: #12181f;
+      --text-muted: #5a6a7a;
+      --accent: #c2410c;
+      --accent-dark: #9a3412;
+      --accent-soft: rgba(232, 93, 4, 0.12);
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+    :root {
+      --radius: 14px;
+      --sidebar-w: 260px;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --font: 'Inter', system-ui, sans-serif;
+      --font-display: 'Space Grotesk', 'Inter', sans-serif;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      height: 100vh;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    .app { display: flex; height: 100vh; width: 100%; }
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      background: var(--bg-elevated);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 0;
+      z-index: 20;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .brand {
+      padding: 0 1.75rem 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    .brand .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .brand .logo span { color: var(--accent); }
+    .brand .tagline { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+    .nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0 0.75rem;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      border: none;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+    .nav-item i { width: 1.25rem; text-align: center; font-size: 1.05rem; }
+    .nav-item:hover { color: var(--text); background: var(--accent-soft); }
+    .nav-item.active { color: var(--accent); background: var(--accent-soft); }
+    .sidebar-footer {
+      padding: 1.25rem 1.75rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .availability .dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--accent-soft);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.6rem 0.85rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: var(--transition);
+      width: 100%;
+    }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .theme-toggle .icons { display: flex; gap: 0.35rem; }
+    .theme-toggle .icons i { opacity: 0.4; transition: opacity 0.2s; }
+    [data-theme="dark"] .theme-toggle .fa-moon { opacity: 1; color: var(--accent); }
+    [data-theme="light"] .theme-toggle .fa-sun { opacity: 1; color: var(--accent); }
+
+    .main { flex: 1; min-width: 0; height: 100%; position: relative; }
+    .swiper { width: 100%; height: 100%; }
+    .swiper-slide {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--bg);
+      -webkit-overflow-scrolling: touch;
+      transition: background 0.3s ease;
+    }
+    .slide-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 2.5rem 4rem;
+      min-height: 100%;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom));
+      z-index: 30;
+      justify-content: space-around;
+    }
+    .mobile-nav button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      padding: 0.4rem 0.6rem;
+      transition: var(--transition);
+    }
+    .mobile-nav button i { font-size: 1.15rem; }
+    .mobile-nav button.active { color: var(--accent); }
+    .mobile-theme {
+      position: fixed;
+      top: 1rem; right: 1rem;
+      z-index: 25;
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .mobile-theme:hover { color: var(--accent); border-color: var(--accent); }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-primary { background: var(--accent); color: #1a0a00; }
+    [data-theme="light"] .btn-primary { color: #fff; }
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--accent-soft);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+
+    .home-slide .slide-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100%;
+    }
+    .home-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      width: fit-content;
+    }
+    .home-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 3.75rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .home-title .name { color: var(--accent); }
+    .home-role {
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+    .home-role .typed { color: var(--accent); font-weight: 600; }
+    .home-lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 0.5rem;
+    }
+    .home-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .stat span { font-size: 0.85rem; color: var(--text-muted); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--text-muted); margin-bottom: 1rem; }
+    .about-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .meta-item { font-size: 0.9rem; }
+    .meta-item span { color: var(--accent); font-weight: 600; margin-right: 0.35rem; }
+    .skills { display: flex; flex-direction: column; gap: 1.1rem; }
+    .skill { display: flex; flex-direction: column; gap: 0.4rem; }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .skill-header .pct { color: var(--text-muted); font-size: 0.8rem; }
+    .skill-bar {
+      height: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+      border-radius: 999px;
+      width: 0;
+      transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+    .service-card p { color: var(--text-muted); font-size: 0.92rem; flex: 1; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .project-thumb {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-thumb i {
+      font-size: 2.5rem;
+      color: var(--accent);
+      opacity: 0.75;
+      z-index: 1;
+    }
+    .project-body {
+      padding: 1.35rem 1.5rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0.55rem;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .project-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .project-body p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .project-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    .project-link:hover { gap: 0.55rem; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-item .icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+    .contact-item p, .contact-item a { font-weight: 500; font-size: 0.95rem; }
+    .contact-item a:hover { color: var(--accent); }
+    .socials { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
+    .socials a {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .socials a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .scroll-hint i { animation: bounce 1.4s infinite; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(4px); }
+    }
+
+    .case-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: var(--bg);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .case-overlay.open { display: flex; }
+    .case-header {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-elevated);
+    }
+    .case-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    .case-back:hover { color: var(--accent); background: var(--accent-soft); }
+    .case-body {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .case-inner { max-width: 720px; margin: 0 auto; }
+    .case-inner .section-label { margin-bottom: 0.5rem; }
+    .case-inner h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .case-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .case-block { margin-bottom: 2rem; }
+    .case-block h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--accent);
+    }
+    .case-block p, .case-block li {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .case-block ul { padding-left: 1.25rem; list-style: disc; }
+    .case-block li { margin-bottom: 0.35rem; }
+    .case-result {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .case-result strong { color: var(--accent); }
+    .case-cta { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .mobile-nav { display: flex; }
+      .mobile-theme { display: flex; }
+      .slide-inner { padding: 2rem 1.25rem 5.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .home-stats { gap: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .home-title { font-size: 2.1rem; }
+      .services-grid, .projects-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">Hubert<span>.</span></div>
+        <div class="tagline">Web Developer · Ghana</div>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-item active" data-index="0" aria-current="page"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="nav-item" data-index="1"><i class="fa-solid fa-user"></i> About</button>
+        <button class="nav-item" data-index="2"><i class="fa-solid fa-briefcase"></i> Services</button>
+        <button class="nav-item" data-index="3"><i class="fa-solid fa-folder-open"></i> Work</button>
+        <button class="nav-item" data-index="4"><i class="fa-solid fa-envelope"></i> Contact</button>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span>Theme</span>
+          <span class="icons"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></span>
+        </button>
+        <div class="availability">
+          <span class="dot" aria-hidden="true"></span>
+          Available for new projects
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="swiper" id="portfolioSwiper">
+        <div class="swiper-wrapper">
+
+          <section class="swiper-slide home-slide" data-hash="home">
+            <div class="slide-inner">
+              <div class="home-badge"><i class="fa-solid fa-bolt"></i> Open to freelance &amp; full-time</div>
+              <h1 class="home-title">Hi, I’m <span class="name">Hubert</span></h1>
+              <p class="home-role">A <span class="typed" id="typed-role">Web Developer</span></p>
+              <p class="home-lead">I build fast, conversion-focused websites that help businesses look credible and turn visitors into customers.</p>
+              <div class="btn-group">
+                <button class="btn btn-primary" data-goto="4"><i class="fa-solid fa-paper-plane"></i> Let’s talk</button>
+                <button class="btn btn-ghost" data-goto="3">View work</button>
+              </div>
+              <div class="home-stats">
+                <div class="stat"><strong>1+</strong><span>Years experience</span></div>
+                <div class="stat"><strong>5+</strong><span>Projects delivered</span></div>
+                <div class="stat"><strong>24/7</strong><span>Support mindset</span></div>
+              </div>
+            </div>
+            <p class="scroll-hint">Swipe or use nav <i class="fa-solid fa-chevron-right"></i></p>
+          </section>
+
+          <section class="swiper-slide" data-hash="about">
+            <div class="slide-inner">
+              <p class="section-label">About</p>
+              <h2 class="section-title">Building digital products that work</h2>
+              <p class="section-desc">Who I am and what to expect.</p>
+              <div class="about-grid">
+                <div class="about-text">
+                  <p>I’m Hubert, a self-taught web developer based in Ghana. I focus on clean front-end experiences so businesses can launch faster and look professional online.</p>
+                  <p>I started by teaching myself HTML, CSS and JavaScript <em>(still learning inherently)</em>, then moved into reading some Python basics. Not limited to just code, I pursue an understanding of sales and marketing, specifically what your customers might be expecting, with careful research. Today I want to help small businesses and startups create websites that load quickly, look modern, sell, and are easy to update.</p>
+                  <p>I believe one thing when it comes to websites: like your physical shop, a website is your digital store that never closes. A salesman that works 24/7 and only gets results when used efficiently. Without the right system, it becomes pointless.</p>
+                  <p>Hence I look forward to carefully understanding your digital business and helping you set up systems that drive sales.</p>
+                  <p>I prioritise clear communication, realistic timelines, and code that other developers can actually maintain. I hope to be your trusted and reliable web developer and partner.</p>
+                  <div class="about-meta">
+                    <div class="meta-item"><span>Experience:</span> 1+ years</div>
+                    <div class="meta-item"><span>Location:</span> Ghana</div>
+                    <div class="meta-item"><span>Availability:</span> Open for projects</div>
+                    <div class="meta-item"><span>Stack focus:</span> HTML, CSS, JS</div>
+                  </div>
+                  <div class="btn-group">
+                    <button class="btn btn-primary" data-goto="4">Hire me</button>
+                    <a class="btn btn-ghost" href="#" download>Download CV</a>
+                  </div>
+                </div>
+                <div class="skills" id="skills">
+                  <div class="skill">
+                    <div class="skill-header"><span>HTML &amp; Semantic Markup</span><span class="pct">95%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                  </div>
+                  <div class="skill">
+                    <div class="skill-header"><span>CSS / Responsive UI</span><span class="pct">85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                  </div>
+                  <div class="skill">
+                    <div class="skill-header"><span>JavaScript</span><span class="pct">45%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-width="45"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="swiper-slide" data-hash="services">
+            <div class="slide-inner">
+              <p class="section-label">Services</p>
+              <h2 class="section-title">What I can do for you</h2>
+              <p class="section-desc">Focus on outcomes, not just tools. Clients hire results.</p>
+              <div class="services-grid">
+                
+                <article class="service-card">
+                  <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                  <h3>Web Development</h3>
+                  <p>Fast, accessible websites built with solid HTML, CSS and JavaScript. From landing pages to multi-page business sites.</p>
+                </article>
+                <article class="service-card">
+                  <div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                  <h3>Responsive &amp; Mobile-first</h3>
+                  <p>Every project is built mobile-first so your site works great on phones, where most of your traffic actually comes from.</p>
+                </article>
+                <article class="service-card">
+                  <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                  <h3>Flyer Design</h3>
+                  <p>Clean, modern designs that serves a single purpose; marketing. Designed to promote or advertise your business products or services — not just look “pretty”.</p>
+                </article>
+                <article class="service-card">
+                  <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
+                  <h3>Performance &amp; SEO basics</h3>
+                  <p>Fast load times, proper headings, meta tags and clean structure so search engines and users both have an easier time.</p>
+                </article>
+                <article class="service-card">
+                  <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+                  <h3>Support &amp; Handover</h3>
+                  <p>Clear documentation and reasonable support after launch so you’re not left guessing how to update content.</p>
+                </article>
+                <article class="service-card">
+                  <div class="service-icon"><i class="fa-solid fa-book"></i></div>
+                  <h3>Copywriting &amp; Proofreading</h3>
+                  <p>Backed by AI, I write copy to leave an impression on customers during page visits. I do this for websites, social media captions, and flyers.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="swiper-slide" data-hash="work">
+            <div class="slide-inner">
+              <p class="section-label">Selected work</p>
+              <h2 class="section-title">Projects that show the process</h2>
+              
+              <div class="projects-grid">
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-store"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">Web Design</span><span class="tag">HTML/CSS</span></div>
+                    <h3>Local business website</h3>
+                    <p>Redesigned a small business site with clearer purpose, about, services and a simple contact flow. Result: easier content order and better mobile experience.</p>
+                    <button type="button" class="project-link" data-case="local-business">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-laptop-code"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">UI</span><span class="tag">Structure</span></div>
+                    <h3>Content-focused site structure</h3>
+                    <p>Planned page hierarchy and sections so visitors find what they need quickly. Focus on clarity and conversion paths.</p>
+                    <button type="button" class="project-link" data-case="structure">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-palette"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">UI</span><span class="tag">Landing page</span></div>
+                    <h3>Product landing page</h3>
+                    <p>High-clarity landing page with clear hierarchy, social-proof space and strong CTAs. Built to be easy to test and improve.</p>
+                    <button type="button" class="project-link" data-case="landing">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-flask"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">Experiment</span><span class="tag">This site</span></div>
+                    <h3>Interactive portfolio concept</h3>
+                    <p>This site itself — clean navigation, client-first copy structure and a focus on speed and clarity.</p>
+                    <button type="button" class="project-link" data-case="portfolio">You’re looking at it <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="swiper-slide" data-hash="contact">
+            <div class="slide-inner">
+              <p class="section-label">Contact</p>
+              <h2 class="section-title">Let’s build something useful</h2>
+              <p class="section-desc">Tell me about your project. I usually reply within 24–48 hours.</p>
+              <div class="contact-grid">
+                <div class="contact-info">
+                  <div class="contact-item">
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <div><h4>Phone</h4><p><a href="tel:+233533644593">053 364 4593</a></p></div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div><h4>Email</h4><p><a href="mailto:webbiescreate@gmail.com">webbiescreate@gmail.com</a></p></div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div><h4>Location</h4><p>Ghana (remote-friendly)</p></div>
+                  </div>
+                  <div class="socials">
+                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-threads"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                  </div>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" name="name" placeholder="Your name" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Project type or question" />
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell me about the project, timeline and budget range if you can..." required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary" style="width:100%"><i class="fa-solid fa-paper-plane"></i> Send message</button>
+                  <p class="form-note">Or email me directly at webbiescreate@gmail.com.</p>
+                </form>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button data-index="0" class="active"><i class="fa-solid fa-house"></i> Home</button>
+    <button data-index="1"><i class="fa-solid fa-user"></i> About</button>
+    <button data-index="2"><i class="fa-solid fa-briefcase"></i> Services</button>
+    <button data-index="3"><i class="fa-solid fa-folder-open"></i> Work</button>
+    <button data-index="4"><i class="fa-solid fa-envelope"></i> Contact</button>
+  </nav>
+  <button class="mobile-theme" id="mobileThemeToggle" type="button" aria-label="Toggle theme">
+    <i class="fa-solid fa-moon" id="mobileThemeIcon"></i>
+  </button>
+
+  <div class="case-overlay" id="caseOverlay" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+    <div class="case-header">
+      <button type="button" class="case-back" id="caseBack"><i class="fa-solid fa-arrow-left"></i> Back to work</button>
+    </div>
+    <div class="case-body"><div class="case-inner" id="caseContent"></div></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const root = document.documentElement;
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const mobileThemeIcon = document.getElementById('mobileThemeIcon');
+
+    function getPreferredTheme() {
+      const stored = localStorage.getItem('hubert-theme');
+      if (stored) return stored;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('hubert-theme', theme);
+      if (metaTheme) metaTheme.setAttribute('content', theme === 'light' ? '#f4f7f5' : '#0f1419');
+      if (mobileThemeIcon) mobileThemeIcon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+    applyTheme(getPreferredTheme());
+    function toggleTheme() {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('mobileThemeToggle')?.addEventListener('click', toggleTheme);
+
+    const swiper = new Swiper('#portfolioSwiper', {
+      direction: 'horizontal',
+      speed: 500,
+      effect: 'creative',
+      creativeEffect: {
+        prev: { shadow: true, translate: ['-18%', 0, -1], opacity: 0.55 },
+        next: { translate: ['100%', 0, 0] },
+      },
+      keyboard: { enabled: true },
+      mousewheel: {
+        forceToAxis: true,
+        sensitivity: 1,
+        releaseOnEdges: true,
+        thresholdDelta: 12,
+      },
+      hashNavigation: { watchState: true },
+      on: {
+        slideChange() {
+          updateNav(this.activeIndex);
+          if (this.activeIndex === 1) animateSkills();
+        },
+      },
+    });
+
+    function goTo(index) { swiper.slideTo(index); }
+    function updateNav(index) {
+      document.querySelectorAll('.nav-item, .mobile-nav button').forEach(el => {
+        const on = Number(el.dataset.index) === index;
+        el.classList.toggle('active', on);
+        if (on) el.setAttribute('aria-current', 'page');
+        else el.removeAttribute('aria-current');
+      });
+    }
+    document.querySelectorAll('[data-index]').forEach(btn => {
+      btn.addEventListener('click', () => goTo(Number(btn.dataset.index)));
+    });
+    document.querySelectorAll('[data-goto]').forEach(btn => {
+      btn.addEventListener('click', () => goTo(Number(btn.dataset.goto)));
+    });
+
+    let skillsAnimated = false;
+    function animateSkills() {
+      if (skillsAnimated) return;
+      skillsAnimated = true;
+      document.querySelectorAll('.skill-fill').forEach(bar => {
+        requestAnimationFrame(() => { bar.style.width = (bar.dataset.width || 0) + '%'; });
+      });
+    }
+
+    const roles = ['Web Developer', 'Front-end Builder', 'AI Enthusiast', 'Problem Solver'];
+    let roleIndex = 0;
+    const typedEl = document.getElementById('typed-role');
+    if (typedEl) {
+      setInterval(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        typedEl.style.opacity = '0';
+        setTimeout(() => {
+          typedEl.textContent = roles[roleIndex];
+          typedEl.style.opacity = '1';
+        }, 200);
+      }, 2800);
+      typedEl.style.transition = 'opacity 0.2s ease';
+    }
+    updateNav(0);
+
+    const cases = {
+      'local-business': {
+        label: 'Case study',
+        title: 'Local business website',
+        tags: ['Web Design', 'HTML/CSS', 'Mobile-first'],
+        blocks: [
+          { h: 'The problem', p: 'The existing site was hard to navigate on phones. Services and contact details were buried, so visitors left without enquiring.' },
+          { h: 'Approach', p: 'Rebuilt the structure around clear sections: purpose, services, about, and a simple contact path. Prioritised mobile layout and readable hierarchy.' },
+          { h: 'What shipped', list: ['Clean multi-section layout', 'Mobile-first responsive design', 'Obvious contact / enquiry path', 'Faster perceived load with lean HTML/CSS'] },
+          { h: 'Result', result: 'Easier content flow and a clearer path for customers to reach out — especially from mobile.' },
+          {h: 'Take a look', p: ['https://hewie25.github.io/glorylandrealtyfoundation.org/'] },
+        ],
+      },
+      structure: {
+        label: 'Case study',
+        title: 'Content-focused site structure',
+        tags: ['UI', 'IA', 'Conversion'],
+        blocks: [
+          { h: 'The problem', p: 'Visitors could not find key information quickly. The site felt like a list of pages rather than a guided experience.' },
+          { h: 'Approach', p: 'Mapped the main user goals, then ordered pages and sections so the most important actions appear first. Kept copy short and scannable.' },
+          { h: 'What shipped', list: ['Clear page hierarchy', 'Consistent section patterns', 'Stronger visual hierarchy for CTAs'] },
+         
+          { h: 'Result', result: 'Visitors can understand the offer and next step faster — which is the foundation for better conversion.' },
+           {h: 'Have a look', p: ['https://hewie25.github.io/glorylandrealtyfoundation.org/'] },
+        ],
+      },
+      landing: {
+        label: 'Case study',
+        title: 'Product landing page',
+        tags: ['UI', 'School Page', 'CTAs'],
+        blocks: [
+          { h: 'The problem', p: 'The page needed a clear story: what the product is, why it matters, and what to do next — without looking cluttered.' },
+          { h: 'Approach', p: 'Built a single long-scroll landing page with strong hierarchy, space for social proof, and prominent primary CTAs. Kept the design easy to A/B test later.' },
+          { h: 'What shipped', list: ['Hero with clear value proposition', 'Feature / benefit sections', 'Social-proof placeholders', 'Primary and secondary CTAs'] },
+          { h: 'Result', result: 'A page structure that is easy to test and improve, with conversion paths that are obvious on both desktop and mobile.' },
+          {h: 'Take a look', p: ['https://hewie25.github.io/glorylandrealtyfoundation.org/'] },
+        ],
+      },
+      portfolio: {
+        label: 'This site',
+        title: 'Interactive portfolio concept',
+        tags: ['Experiment', 'UX', 'Performance'],
+        blocks: [
+          { h: 'Goal', p: 'Show that a portfolio can be fast, clear and client-focused.' },
+          { h: 'What it demonstrates', list: ['Slide-based navigation that still allows vertical scrolling', 'Honest skill levels and services', 'Case-study style project presentation', 'Dark / light theme with almost zero cost', 'Mobile-first layout'] },
+          { h: 'Takeaway', result: 'You are looking at the live example. Speed and clarity beat decoration when clients are deciding who to hire.' },
+        ],
+      },
+    };
+
+    const overlay = document.getElementById('caseOverlay');
+    const caseContent = document.getElementById('caseContent');
+
+    function openCase(id) {
+      const data = cases[id];
+      if (!data) return;
+      let html = '<p class="section-label">' + data.label + '</p>';
+      html += '<h1 id="caseTitle">' + data.title + '</h1>';
+      html += '<div class="case-meta">' + data.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('') + '</div>';
+      data.blocks.forEach(function(b) {
+        html += '<div class="case-block">';
+        if (b.h) html += '<h3>' + b.h + '</h3>';
+        if (b.p) html += '<p>' + b.p + '</p>';
+        if (b.list) html += '<ul>' + b.list.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>';
+        if (b.result) html += '<div class="case-result"><strong>Result:</strong> ' + b.result + '</div>';
+        html += '</div>';
+      });
+      html += '<div class="case-cta btn-group"><button type="button" class="btn btn-primary" id="caseHire">Let’s talk about a similar project</button><button type="button" class="btn btn-ghost" id="caseBack2">Back to work</button></div>';
+      caseContent.innerHTML = html;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('caseHire')?.addEventListener('click', function(){ closeCase(); goTo(4); });
+      document.getElementById('caseBack2')?.addEventListener('click', closeCase);
+    }
+    function closeCase() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-case]').forEach(function(btn) {
+      btn.addEventListener('click', function(){ openCase(btn.dataset.case); });
+    });
+    document.getElementById('caseBack')?.addEventListener('click', closeCase);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeCase();
+    });
+  </script>
+</body>
+</html>
