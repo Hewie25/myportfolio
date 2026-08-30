@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hubert — Web Developer from Ghana. Clean, fast, conversion-focused websites that help businesses look credible and sell." />
+  <meta name="theme-color" content="#0f1419" />
+  <title>Hubert | Web Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css">
+ 
+ <style>
+     body {
+         height: 100%;
+         width: 100%;
+     }
+     
+     @media(max-width:1024px) {
+        .app { height: 100%; width: 100%; }
+      .home-slide .swiper-slide{height: 100%;}
+      .main {height: 100%;} 
+      body { height: 100%;}
+    }
+    
+      @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .mobile-nav { display: flex; }
+      .mobile-theme { display: flex; }
+      .slide-inner { padding: 2rem 1.25rem 5.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .home-stats { gap: 1.5rem; }
+      .app { height: 100%; width: 100%; }
+      .home-slide .swiper-slide{height: 100%;}
+      .main {height: 100%;} 
+      body { height: 100%;}
+      
+    }
+    @media (max-width: 480px) {
+      .home-title { font-size: 2.1rem; }
+      .services-grid, .projects-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+ </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">Hubert<span>.</span></div>
+        <div class="tagline">Web Developer · Ghana</div>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-item active" data-index="0" aria-current="page"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="nav-item" data-index="1"><i class="fa-solid fa-user"></i> About</button>
+        <button class="nav-item" data-index="2"><i class="fa-solid fa-briefcase"></i> Services</button>
+        <button class="nav-item" data-index="3"><i class="fa-solid fa-folder-open"></i> Work</button>
+        <button class="nav-item" data-index="4"><i class="fa-solid fa-envelope"></i> Contact</button>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span>Theme</span>
+          <span class="icons"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></span>
+        </button>
+        <div class="availability">
+          <span class="dot" aria-hidden="true"></span>
+          Available for new projects
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="swiper" id="portfolioSwiper">
+        <div class="swiper-wrapper">
+
+ <section class="swiper-slide" data-hash="work">
+            <div class="slide-inner">
+              <p class="section-label">Selected work</p>
+              <h2 class="section-title">Projects that show the process</h2>
+              
+              <div class="projects-grid">
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-store"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">Web Design</span><span class="tag">HTML/CSS</span></div>
+                    <h3>Local business website</h3>
+                    <p>Redesigned a small business site with clearer purpose, about, services and a simple contact flow. Result: easier content order and better mobile experience.</p>
+                    <button type="button" class="project-link" data-case="local-business">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-laptop-code"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">UI</span><span class="tag">Structure</span></div>
+                    <h3>Content-focused site structure</h3>
+                    <p>Planned page hierarchy and sections so visitors find what they need quickly. Focus on clarity and conversion paths.</p>
+                    <button type="button" class="project-link" data-case="structure">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-palette"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">UI</span><span class="tag">Landing page</span></div>
+                    <h3>Product landing page</h3>
+                    <p>High-clarity landing page with clear hierarchy, social-proof space and strong CTAs. Built to be easy to test and improve.</p>
+                    <button type="button" class="project-link" data-case="landing">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><i class="fa-solid fa-flask"></i></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">Experiment</span><span class="tag">This site</span></div>
+                    <h3>Interactive portfolio concept</h3>
+                    <p>This site itself — clean navigation, client-first copy structure and a focus on speed and clarity.</p>
+                    <button type="button" class="project-link" data-case="portfolio">You’re looking at it <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+
+        
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button data-index="0" class="active"><i class="fa-solid fa-house"></i> Home</button>
+    <button data-index="1"><i class="fa-solid fa-user"></i> About</button>
+    <button data-index="2"><i class="fa-solid fa-briefcase"></i> Services</button>
+    <button data-index="3"><i class="fa-solid fa-folder-open"></i> Work</button>
+    <button data-index="4"><i class="fa-solid fa-envelope"></i> Contact</button>
+  </nav>
+  <button class="mobile-theme" id="mobileThemeToggle" type="button" aria-label="Toggle theme">
+    <i class="fa-solid fa-moon" id="mobileThemeIcon"></i>
+  </button>
+
+  <div class="case-overlay" id="caseOverlay" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+    <div class="case-header">
+      <button type="button" class="case-back" id="caseBack"><i class="fa-solid fa-arrow-left"></i> Back to work</button>
+    </div>
+    <div class="case-body"><div class="case-inner" id="caseContent"></div></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const root = document.documentElement;
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const mobileThemeIcon = document.getElementById('mobileThemeIcon');
+
+    function getPreferredTheme() {
+      const stored = localStorage.getItem('hubert-theme');
+      if (stored) return stored;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('hubert-theme', theme);
+      if (metaTheme) metaTheme.setAttribute('content', theme === 'light' ? '#f4f7f5' : '#0f1419');
+      if (mobileThemeIcon) mobileThemeIcon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+    applyTheme(getPreferredTheme());
+    function toggleTheme() {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('mobileThemeToggle')?.addEventListener('click', toggleTheme);
+
+    const swiper = new Swiper('#portfolioSwiper', {
+      direction: 'horizontal',
+      speed: 500,
+      effect: 'creative',
+      creativeEffect: {
+        prev: { shadow: true, translate: ['-18%', 0, -1], opacity: 0.55 },
+        next: { translate: ['100%', 0, 0] },
+      },
+      keyboard: { enabled: true },
+      mousewheel: {
+        forceToAxis: true,
+        sensitivity: 1,
+        releaseOnEdges: true,
+        thresholdDelta: 12,
+      },
+      hashNavigation: { watchState: true },
+      on: {
+        slideChange() {
+          updateNav(this.activeIndex);
+          if (this.activeIndex === 1) animateSkills();
+        },
+      },
+    });
+
+    function goTo(index) { swiper.slideTo(index); }
+    function updateNav(index) {
+      document.querySelectorAll('.nav-item, .mobile-nav button').forEach(el => {
+        const on = Number(el.dataset.index) === index;
+        el.classList.toggle('active', on);
+        if (on) el.setAttribute('aria-current', 'page');
+        else el.removeAttribute('aria-current');
+      });
+    }
+    document.querySelectorAll('[data-index]').forEach(btn => {
+      btn.addEventListener('click', () => goTo(Number(btn.dataset.index)));
+    });
+    document.querySelectorAll('[data-goto]').forEach(btn => {
+      btn.addEventListener('click', () => goTo(Number(btn.dataset.goto)));
+    });
+
+    let skillsAnimated = false;
+    function animateSkills() {
+      if (skillsAnimated) return;
+      skillsAnimated = true;
+      document.querySelectorAll('.skill-fill').forEach(bar => {
+        requestAnimationFrame(() => { bar.style.width = (bar.dataset.width || 0) + '%'; });
+      });
+    }
+
+    const roles = ['Web Developer', 'Front-end Builder', 'AI Enthusiast', 'Problem Solver'];
+    let roleIndex = 0;
+    const typedEl = document.getElementById('typed-role');
+    if (typedEl) {
+      setInterval(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        typedEl.style.opacity = '0';
+        setTimeout(() => {
+          typedEl.textContent = roles[roleIndex];
+          typedEl.style.opacity = '1';
+        }, 200);
+      }, 2800);
+      typedEl.style.transition = 'opacity 0.2s ease';
+    }
+    updateNav(0);
+
+    const cases = {
+      'local-business': {
+        label: 'Case study',
+        title: 'Local business website',
+        tags: ['Web Design', 'HTML/CSS', 'Mobile-first'],
+        blocks: [
+          { h: 'The problem', p: 'The existing site was hard to navigate on phones. Services and contact details were buried, so visitors left without enquiring.' },
+          { h: 'Approach', p: 'Rebuilt the structure around clear sections: purpose, services, about, and a simple contact path. Prioritised mobile layout and readable hierarchy.' },
+          { h: 'What shipped', list: ['Clean multi-section layout', 'Mobile-first responsive design', 'Obvious contact / enquiry path', 'Faster perceived load with lean HTML/CSS'] },
+          { h: 'Result', result: 'Easier content flow and a clearer path for customers to reach out — especially from mobile.' },
+          {h: 'Take a look', p: ['https://hewie25.github.io/glorylandrealtyfoundation.org/'] },
+        ],
+      },
+      structure: {
+        label: 'Case study',
+        title: 'Content-focused site structure',
+        tags: ['UI', 'IA', 'Conversion'],
+        blocks: [
+          { h: 'The problem', p: 'Visitors could not find key information quickly. The site felt like a list of pages rather than a guided experience.' },
+          { h: 'Approach', p: 'Mapped the main user goals, then ordered pages and sections so the most important actions appear first. Kept copy short and scannable.' },
+          { h: 'What shipped', list: ['Clear page hierarchy', 'Consistent section patterns', 'Stronger visual hierarchy for CTAs'] },
+         
+          { h: 'Result', result: 'Visitors can understand the offer and next step faster — which is the foundation for better conversion.' },
+           {h: 'Have a look', p: ['https://hewie25.github.io/glorylandrealtyfoundation.org/'] },
+        ],
+      },
+      landing: {
+        label: 'Case study',
+        title: 'Product landing page',
+        tags: ['UI', 'School Page', 'CTAs'],
+        blocks: [
+          { h: 'The problem', p: 'The page needed a clear story: what the product is, why it matters, and what to do next — without looking cluttered.' },
+          { h: 'Approach', p: 'Built a single long-scroll landing page with strong hierarchy, space for social proof, and prominent primary CTAs. Kept the design easy to A/B test later.' },
+          { h: 'What shipped', list: ['Hero with clear value proposition', 'Feature / benefit sections', 'Social-proof placeholders', 'Primary and secondary CTAs'] },
+          { h: 'Result', result: 'A page structure that is easy to test and improve, with conversion paths that are obvious on both desktop and mobile.' },
+          {h: 'Take a look', p: ['https://hewie25.github.io/glorylandrealtyfoundation.org/'] },
+        ],
+      },
+      portfolio: {
+        label: 'This site',
+        title: 'Interactive portfolio concept',
+        tags: ['Experiment', 'UX', 'Performance'],
+        blocks: [
+          { h: 'Goal', p: 'Show that a portfolio can be fast, clear and client-focused.' },
+          { h: 'What it demonstrates', list: ['Slide-based navigation that still allows vertical scrolling', 'Honest skill levels and services', 'Case-study style project presentation', 'Dark / light theme with almost zero cost', 'Mobile-first layout'] },
+          { h: 'Takeaway', result: 'You are looking at the live example. Speed and clarity beat decoration when clients are deciding who to hire.' },
+        ],
+      },
+    };
+
+    const overlay = document.getElementById('caseOverlay');
+    const caseContent = document.getElementById('caseContent');
+
+    function openCase(id) {
+      const data = cases[id];
+      if (!data) return;
+      let html = '<p class="section-label">' + data.label + '</p>';
+      html += '<h1 id="caseTitle">' + data.title + '</h1>';
+      html += '<div class="case-meta">' + data.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('') + '</div>';
+      data.blocks.forEach(function(b) {
+        html += '<div class="case-block">';
+        if (b.h) html += '<h3>' + b.h + '</h3>';
+        if (b.p) html += '<p>' + b.p + '</p>';
+        if (b.list) html += '<ul>' + b.list.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>';
+        if (b.result) html += '<div class="case-result"><strong>Result:</strong> ' + b.result + '</div>';
+        html += '</div>';
+      });
+      html += '<div class="case-cta btn-group"><button type="button" class="btn btn-primary" id="caseHire">Let’s talk about a similar project</button><button type="button" class="btn btn-ghost" id="caseBack2">Back to work</button></div>';
+      caseContent.innerHTML = html;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('caseHire')?.addEventListener('click', function(){ closeCase(); goTo(4); });
+      document.getElementById('caseBack2')?.addEventListener('click', closeCase);
+    }
+    function closeCase() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-case]').forEach(function(btn) {
+      btn.addEventListener('click', function(){ openCase(btn.dataset.case); });
+    });
+    document.getElementById('caseBack')?.addEventListener('click', closeCase);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeCase();
+    });
+  </script>
+</body>
+</html>
