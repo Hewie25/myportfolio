@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hubert — Web Developer from Ghana. Clean, fast, conversion-focused websites that help businesses look credible and sell." />
+  <meta name="keywords" content="Web Developer for hire, Freelance gigs, Freelance Developer, Websites, Business websites, Business assets, Digital assets, Hubert Sackey, Digital Marketing"/>
+  <meta name="theme-color" content="#0f1419" />
+  <title>Hubert | Web Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css"/>
+ 
+ <style>
+    
+      @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .mobile-nav { display: flex; }
+      .mobile-theme { display: flex; }
+      .slide-inner { padding: 2rem 1.25rem 5.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .home-stats { gap: 1.5rem; }
+      .app { height: 100vh; width: 100%; }
+      .home-slide .swiper-slide{height: 100vh;}
+      .main {height: 100%;} 
+      .preferred-height {position: fixed; height: 100vh;}
+      body { height: 100vh;}
+      .scroll-hint {
+      position: fixed;
+      padding-bottom: 60px;
+      }
+    }
+    @media (max-width: 480px) {
+      .home-title { font-size: 2.1rem; }
+      .services-grid, .projects-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+ </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">Hubert<span>.</span></div>
+        <div class="tagline">Web Developer · Ghana</div>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+          <a href="portfolio-home.html"><button class="nav-item active" aria-current="page"><i class="fa-solid fa-house"></i> Home</button></a>
+          <a href="portfolio-about.html"><button class="nav-item"><i class="fa-solid fa-user"></i> About</button></a>
+          <a href="portfolio-services.html"><button class="nav-item"><i class="fa-solid fa-briefcase"></i> Services</button></a>
+          <a href="portfolio-work.html"><button class="nav-item"><i class="fa-solid fa-folder-open"></i> Work</button></a>
+          <a href="portfolio-contact.html"><button class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</button></a>
+        </nav>
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span>Theme</span>
+          <span class="icons"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></span>
+        </button>
+        <div class="availability">
+          <span class="dot" aria-hidden="true"></span>
+          Available for new projects
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="swiper" id="portfolioSwiper">
+        <div class="swiper-wrapper">
+          <section class="swiper-slide home-slide" data-hash="home">
+              <div class="preferred-height">
+            <div class="slide-inner">
+              <div class="home-badge"><i class="fa-solid fa-bolt"></i> Open to freelance &amp; full-time</div>
+              <h1 class="home-title">Hi, I’m <span class="name">Hubert</span></h1>
+              <p class="home-role">A <span class="typed" id="typed-role">Web Developer</span></p>
+              <p class="home-lead">I build fast, conversion-focused websites that help businesses look credible and turn visitors into customers.</p>
+              <div class="btn-group">
+                <a href="portfolio-contact.html" title="Home Page"><button class="btn btn-primary" data-goto="4"><i class="fa-solid fa-paper-plane"></i> Let’s talk</button></a>
+                <a href="portfolio-work.html"><button class="btn btn-ghost" data-goto="3">View work</button></a>
+              </div>
+              <div class="home-stats">
+                <div class="stat"><strong>1+</strong><span>Years experience</span></div>
+                <div class="stat"><strong>5+</strong><span>Projects delivered</span></div>
+                <div class="stat"><strong>24/7</strong><span>Support mindset</span></div>
+              </div>
+              </div>
+            </div>
+            <p class="scroll-hint">Swipe or use nav <i class="fa-solid fa-chevron-right"></i></p>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="portfolio-home.html"><button class="active"><i class="fa-solid fa-house"></i> Home</button></a>
+      <a href="portfolio-about.html"><button><i class="fa-solid fa-user"></i> About</button></a>
+      <a href="portfolio-services.html"><button><i class="fa-solid fa-briefcase"></i> Services</button></a>
+      <a href="portfolio-work.html"><button><i class="fa-solid fa-folder-open"></i> Work</button></a>
+      <a href="portfolio-contact.html"><button><i class="fa-solid fa-envelope"></i> Contact</button></a>
+    </nav>
+  <button class="mobile-theme" id="mobileThemeToggle" type="button" aria-label="Toggle theme">
+    <i class="fa-solid fa-moon" id="mobileThemeIcon"></i>
+  </button>
+
+  <div class="case-overlay" id="caseOverlay" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+    <div class="case-header">
+      <button type="button" class="case-back" id="caseBack"><i class="fa-solid fa-arrow-left"></i> Back to work</button>
+    </div>
+    <div class="case-body"><div class="case-inner" id="caseContent"></div></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="nav.js"></script>
+<script>
+  const roles = ['Web Developer', 'Landing Page Specialist', 'Responsive Site Builder', 'Problem Solver'];
+  let roleIndex = 0;
+  const typedEl = document.getElementById('typed-role');
+  if (typedEl) {
+    setInterval(() => {
+      roleIndex = (roleIndex + 1) % roles.length;
+      typedEl.style.opacity = '0';
+      setTimeout(() => {
+        typedEl.textContent = roles[roleIndex];
+        typedEl.style.opacity = '1';
+      }, 200);
+    }, 2800);
+    typedEl.style.transition = 'opacity 0.2s ease';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hubert — Web Developer from Ghana. Clean, fast, conversion-focused websites that help businesses look credible and sell." />
+  <meta name="theme-color" content="#0f1419" />
+  <title>Hubert | Web Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css">
+ 
+ <style>
+     body {
+         height: 100%;
+         width: 100%;
+     }
+     
+     @media(max-width:1024px) {
+        .app { height: 100%; width: 100%; }
+      .home-slide .swiper-slide{height: 100%;}
+      .main {height: 100%;} 
+      body { height: 100%;}
+      .sidebar{height: 105vh;}
+    }
+    
+      @media (max-width: 990px) {
+      .sidebar { display: none; }
+      .mobile-nav { display: flex; }
+      .mobile-theme { display: flex; }
+      .slide-inner { padding: 2rem 1.25rem 5.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .home-stats { gap: 1.5rem; }
+      .app { height: 100%; width: 100%; }
+      .home-slide .swiper-slide{height: 100vh;}
+      .main {height: 100%;} 
+      body { height: 100%;}
+      
+    }
+    @media (max-width: 480px) {
+      .home-title { font-size: 2.1rem; }
+      .services-grid, .projects-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+ </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">Hubert<span>.</span></div>
+        <div class="tagline">Web Developer · Ghana</div>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+          <a href="portfolio-home.html"><button class="nav-item"><i class="fa-solid fa-house"></i> Home</button></a>
+          <a href="portfolio-about.html"><button class="nav-item"><i class="fa-solid fa-user"></i> About</button></a>
+          <a href="portfolio-services.html"><button class="nav-item"><i class="fa-solid fa-briefcase"></i> Services</button></a>
+          <a href="portfolio-work.html"><button class="nav-item active" aria-current="page"><i class="fa-solid fa-folder-open"></i> Work</button></a>
+          <a href="portfolio-contact.html"><button class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</button></a>
+        </nav>
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span>Theme</span>
+          <span class="icons"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></span>
+        </button>
+        <div class="availability">
+          <span class="dot" aria-hidden="true"></span>
+          Available for new projects
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="swiper" id="portfolioSwiper">
+        <div class="swiper-wrapper">
+
+ <section class="swiper-slide" data-hash="work">
+            <div class="slide-inner">
+              <p class="section-label">Selected work</p>
+              <h2 class="section-title">Projects that show the process</h2>
+              
+              <div class="projects-grid">
+                <article class="project-card">
+                  <div class="project-thumb"><img src="ScreenShot_locorg.jpeg"></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">Web Design</span><span class="tag">HTML/CSS</span></div>
+                    <h3>Local business website</h3>
+                    <p>Redesigned a small business site with clearer purpose, about, services and a simple contact flow. Result: easier content order and better mobile experience.</p>
+                    <button type="button" class="project-link" data-case="local-business">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><img src="ScreenShot_school.jpeg"></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">UI</span><span class="tag">Structure</span></div>
+                    <h3>Content-focused site structure</h3>
+                    <p>Planned page hierarchy and sections so visitors find what they need quickly. Focus on clarity and conversion paths.</p>
+                    <button type="button" class="project-link" data-case="structure">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><img src="ScreenShot_landingpage.jpeg"></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">UI</span><span class="tag">Landing page</span></div>
+                    <h3>Product landing page</h3>
+                    <p>High-clarity landing page with clear hierarchy, social-proof space and strong CTAs. Built to be easy to test and improve.</p>
+                    <button type="button" class="project-link" data-case="landing">View case study <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <div class="project-thumb"><img src="ScreenShot_portfo.png"></div>
+                  <div class="project-body">
+                    <div class="project-tags"><span class="tag">Experiment</span><span class="tag">This site</span></div>
+                    <h3>Interactive portfolio concept</h3>
+                    <p>This site itself — clean navigation, client-first copy structure and a focus on speed and clarity.</p>
+                    <button type="button" class="project-link" data-case="portfolio">You’re looking at it <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+
+        
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="portfolio-home.html"><button><i class="fa-solid fa-house"></i> Home</button></a>
+      <a href="portfolio-about.html"><button><i class="fa-solid fa-user"></i> About</button></a>
+      <a href="portfolio-services.html"><button><i class="fa-solid fa-briefcase"></i> Services</button></a>
+      <a href="portfolio-work.html"><button class="active"><i class="fa-solid fa-folder-open"></i> Work</button></a>
+      <a href="portfolio-contact.html"><button><i class="fa-solid fa-envelope"></i> Contact</button></a>
+    </nav>
+  <button class="mobile-theme" id="mobileThemeToggle" type="button" aria-label="Toggle theme">
+    <i class="fa-solid fa-moon" id="mobileThemeIcon"></i>
+  </button>
+
+  <div class="case-overlay" id="caseOverlay" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+    <div class="case-header">
+      <button type="button" class="case-back" id="caseBack"><i class="fa-solid fa-arrow-left"></i> Back to work</button>
+    </div>
+    <div class="case-body"><div class="case-inner" id="caseContent"></div></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="nav.js"></script>
+<script>
+  const cases = {
+    'local-business': {
+      label: 'Case study',
+      title: 'Local business website',
+      tags: ['Web Design', 'HTML/CSS', 'Mobile-first'],
+      blocks: [
+        { h: 'The problem', p: 'The existing site was hard to navigate. Services and contact details were buried, so visitors left without enquiring. The site owner needed a change.' },
+        { h: 'Approach', p: 'Rebuilt the structure around clear sections: purpose, services, about, and a simple contact path. Prioritised mobile layout and readable hierarchy.' },
+        { h: 'What shipped', list: ['Clean multi-section layout', 'Mobile-first responsive design', 'Obvious contact / enquiry path', 'Faster perceived load with lean HTML/CSS'] },
+        { h: 'Result', result: 'Easier content flow and a clearer path for customers to reach out — especially from mobile.' },
+        { h: 'Live link', p: '<a href="https://hewie25.github.io/glorylandrealtyfoundation.org/" target="_blank" rel="noopener">View the git site →</a>' }
+      ]
+    },
+    structure: {
+      label: 'Case study',
+      title: 'Content-focused site structure',
+      tags: ['IA', 'Marketing', 'Conversion'],
+      blocks: [
+        { h: 'The problem', p: 'The school had no website to begin with. No digital presence that could drive in online visits or leads. ' },
+        { h: 'Approach', p: 'Described the intentions of the school, mapped the main user goals, then ordered pages and sections so the most important actions appear first.' },
+        { h: 'What shipped', list: ['Clear page hierarchy and readability', 'Consistent section patterns', 'Stronger visual hierarchy for CTAs'] },
+        { h: 'Result', result: 'Visitors can understand the offer and next step faster.' },
+        { h: 'Live link', p: '<a href="https://hewie25.github.io/waltonmontschool.org/" target="_blank" rel="noopener">View the git site →</a>' }
+      ]
+    },
+    landing: {
+      label: 'Case study',
+      title: 'Product landing page',
+      tags: [ 'Landing page', 'CTAs'],
+      blocks: [
+        { h: 'The problem', p: 'The business had a social page running ads, but no landing page to funnel leads into customers.' },
+        { h: 'Approach', p: 'Built a single long-scroll landing page with strong hierarchy and prominent CTAs.' },
+        { h: 'What shipped', list: ['Hero with clear value proposition', 'Feature / benefit sections', 'Social-proof placeholders', 'Primary and secondary CTAs'] },
+        { h: 'Result', result: 'A page structure that is easy to test and improve.' },
+        { h: 'Live link', p: '<a href="John-best-roofing-system.vercel.app" target="_blank" rel="noopener">View the git site →</a>' }
+      ]
+    },
+    portfolio: {
+      label: 'This site',
+      title: 'Interactive portfolio concept',
+      tags: ['Experiment', 'UX', 'Performance'],
+      blocks: [
+        { h: 'Goal', p: 'Show that a portfolio can be fast, clear and client-focused.' },
+        { h: 'What it demonstrates', list: ['Clean navigation', 'Honest skill levels', 'Case-study style presentation', 'Dark / light theme', 'Mobile-first layout'] },
+        { h: 'Takeaway', result: 'You are looking at the live example.' }
+      ]
+    }
+  };
+
+  const overlay = document.getElementById('caseOverlay');
+  const caseContent = document.getElementById('caseContent');
+
+  function openCase(id) {
+    const data = cases[id];
+    if (!data) return;
+    let html = `<p class="section-label">${data.label}</p>`;
+    html += `<h1 id="caseTitle">${data.title}</h1>`;
+    html += `<div class="case-meta">${data.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`;
+    data.blocks.forEach(b => {
+      html += `<div class="case-block">`;
+      if (b.h) html += `<h3>${b.h}</h3>`;
+      if (b.p) html += `<p>${b.p}</p>`;
+      if (b.list) html += `<ul>${b.list.map(i => `<li>${i}</li>`).join('')}</ul>`;
+      if (b.result) html += `<div class="case-result"><strong>Result:</strong> ${b.result}</div>`;
+      html += `</div>`;
+    });
+    html += `<div class="case-cta btn-group">
+      <a href="portfolio-contact.html" class="btn btn-primary">Let’s talk about a similar project</a>
+      <button type="button" class="btn btn-ghost" id="caseBack2">Back to work</button>
+    </div>`;
+    caseContent.innerHTML = html;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('caseBack2')?.addEventListener('click', closeCase);
+  }
+
+  function closeCase() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-case]').forEach(btn => {
+    btn.addEventListener('click', () => openCase(btn.dataset.case));
+  });
+  document.getElementById('caseBack')?.addEventListener('click', closeCase);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeCase();
+  });
+</script>
+</body>
+</html>
