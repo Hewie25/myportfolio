@@ -317,7 +317,7 @@
       color: var(--accent);
       letter-spacing: -0.02em;
     }
-    .stat span { font-size: 0.65rem; color: var(--text-muted); }
+    .stat span { font-size: 0.85rem; color: var(--text-muted); }
 
     .about-grid {
       display: grid;
