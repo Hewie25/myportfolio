@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Hubert — Web Developer from Ghana. Clean, fast, conversion-focused websites that help businesses look credible and sell." />
-  <meta name="keywords" content="Web Developer for hire, Freelance gigs, Freelance Developer, Websites, Business websites, Business assets, Digital assets, Hubert Sackey, Digital Marketing"/>
   <meta name="theme-color" content="#0f1419" />
   <title>Hubert | Web Developer</title>
 
@@ -14,10 +13,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="styles.css"/>
- 
  <style>
+     body {
+         height: 100%;
+         width: 100%;
+     }
     
-      @media (max-width: 900px) {
+      @media (max-width: 990px) {
       .sidebar { display: none; }
       .mobile-nav { display: flex; }
       .mobile-theme { display: flex; }
@@ -25,11 +27,11 @@
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
       .home-stats { gap: 1.5rem; }
-      .app { height: 100vh; width: 100%; }
-      .home-slide .swiper-slide{height: 100vh;}
+      .app { height: 100%; width: 100%; }
+      .home-slide .swiper-slide{height: 100%;}
       .main {height: 100%;} 
-      .preferred-height {position: fixed; height: 100vh;}
-      body { height: 100vh;}
+      body { height: 100%;}
+      
     }
     @media (max-width: 480px) {
       .home-title { font-size: 2.1rem; }
@@ -51,11 +53,11 @@
         <div class="tagline">Web Developer · Ghana</div>
       </div>
       <nav class="nav" aria-label="Main navigation">
-          <a href="portfolio-home.html"><button class="nav-item active" aria-current="page"><i class="fa-solid fa-house"></i> Home</button></a>
+          <a href="portfolio-home.html"><button class="nav-item"><i class="fa-solid fa-house"></i> Home</button></a>
           <a href="portfolio-about.html"><button class="nav-item"><i class="fa-solid fa-user"></i> About</button></a>
           <a href="portfolio-services.html"><button class="nav-item"><i class="fa-solid fa-briefcase"></i> Services</button></a>
           <a href="portfolio-work.html"><button class="nav-item"><i class="fa-solid fa-folder-open"></i> Work</button></a>
-          <a href="portfolio-contact.html"><button class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</button></a>
+          <a href="portfolio-contact.html"><button class="nav-item active" aria-current="page"><i class="fa-solid fa-envelope"></i> Contact</button></a>
         </nav>
       <div class="sidebar-footer">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
@@ -72,36 +74,70 @@
     <main class="main">
       <div class="swiper" id="portfolioSwiper">
         <div class="swiper-wrapper">
-          <section class="swiper-slide home-slide" data-hash="home">
+
+ <section class="swiper-slide" data-hash="contact">
             <div class="slide-inner">
-              <div class="home-badge"><i class="fa-solid fa-bolt"></i> Open to freelance &amp; full-time</div>
-              <h1 class="home-title">Hi, I’m <span class="name">Hubert</span></h1>
-              <p class="home-role">A <span class="typed" id="typed-role">Web Developer</span></p>
-              <p class="home-lead">I build fast, conversion-focused websites that help businesses look credible and turn visitors into customers.</p>
-              <div class="btn-group">
-                <a href="portfolio-contact.html" title="Home Page"><button class="btn btn-primary" data-goto="4"><i class="fa-solid fa-paper-plane"></i> Let’s talk</button></a>
-                <a href="portfolio-work.html"><button class="btn btn-ghost" data-goto="3">View work</button></a>
+              <p class="section-label">Contact</p>
+              <h2 class="section-title">Let’s build something useful</h2>
+              <p class="section-desc">Tell me about your project. I usually reply within 24–48 hours.</p>
+              <div class="contact-grid">
+                <div class="contact-info">
+                  <div class="contact-item">
+                    <div class="icon"><i class="fa-brands fa-solid fa-whatsapp"></i></div>
+                    <div><h4>WhatsApp</h4><p><a href="https://wa.me/+233533644593">053 364 4593</a></p></div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div><h4>Email</h4><p><a href="mailto:webbiescreate@gmail.com">webbiescreate@gmail.com</a></p></div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div><h4>Location</h4><p>Ghana (remote-friendly)</p></div>
+                  </div>
+                  <div class="socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="threads"><i class="fa-brands fa-threads"></i></a>
+                    <a href="https://www.instagram.com/its_still_hubert?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                  </div>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/mljenwgj" method="POST">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" name="name" placeholder="Your name" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Project type or question" />
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell me about the project, timeline and budget range if you can..." required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary" style="width:100%"><i class="fa-solid fa-paper-plane"></i> Send message</button>
+                  <p class="form-note">Or email me directly at webbiescreate@gmail.com.</p>
+                </form>
               </div>
-              <div class="home-stats">
-                <div class="stat"><strong>1+</strong><span>Years experience</span></div>
-                <div class="stat"><strong>5+</strong><span>Projects delivered</span></div>
-                <div class="stat"><strong>24/7</strong><span>Support mindset</span></div>
-              </div>
-             </div>
-            </div><br/>
-            <p class="scroll-hint">Swipe or use nav <i class="fa-solid fa-chevron-right"></i></p>
+            </div>
           </section>
+        
         </div>
       </div>
     </main>
   </div>
 
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-      <a href="portfolio-home.html"><button class="active"><i class="fa-solid fa-house"></i> Home</button></a>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="portfolio-home.html"><button><i class="fa-solid fa-house"></i> Home</button></a>
       <a href="portfolio-about.html"><button><i class="fa-solid fa-user"></i> About</button></a>
       <a href="portfolio-services.html"><button><i class="fa-solid fa-briefcase"></i> Services</button></a>
       <a href="portfolio-work.html"><button><i class="fa-solid fa-folder-open"></i> Work</button></a>
-      <a href="portfolio-contact.html"><button><i class="fa-solid fa-envelope"></i> Contact</button></a>
+      <a href="portfolio-contact.html"><button class="active"><i class="fa-solid fa-envelope"></i> Contact</button></a>
     </nav>
   <button class="mobile-theme" id="mobileThemeToggle" type="button" aria-label="Toggle theme">
     <i class="fa-solid fa-moon" id="mobileThemeIcon"></i>
@@ -116,21 +152,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="nav.js"></script>
-<script>
-  const roles = ['Web Developer', 'Landing Page Specialist', 'Responsive Site Builder', 'Problem Solver'];
-  let roleIndex = 0;
-  const typedEl = document.getElementById('typed-role');
-  if (typedEl) {
-    setInterval(() => {
-      roleIndex = (roleIndex + 1) % roles.length;
-      typedEl.style.opacity = '0';
-      setTimeout(() => {
-        typedEl.textContent = roles[roleIndex];
-        typedEl.style.opacity = '1';
-      }, 200);
-    }, 2800);
-    typedEl.style.transition = 'opacity 0.2s ease';
-  }
-</script>
+ 
 </body>
 </html>
